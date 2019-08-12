@@ -4,7 +4,7 @@
 namespace BeyCoder;
 
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerCommandPreprocessEvent;
 
 class AntiMatEventListener implements Listener
 {
@@ -15,7 +15,7 @@ class AntiMatEventListener implements Listener
         $this->manager = $manager;
     }
 
-    public function onChat(PlayerChatEvent $event){
+    public function onChat(PlayerCommandPreprocessEvent $event){
         $filterMessage = new Message($event->getMessage(), $event->getPlayer());
 
         $filterMessage->filterMessageText();
